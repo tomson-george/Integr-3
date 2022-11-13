@@ -1,9 +1,6 @@
-import os
-
 import numpy as np
 import tensorflow as tf
 import cv2
-import keras
 from flask import Flask, render_template
 from flask_wtf import FlaskForm
 from wtforms import FileField, SubmitField
