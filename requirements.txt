@@ -4,4 +4,3 @@ wtforms
 werkzeug
 numpy
 pandas
-tensorflow
