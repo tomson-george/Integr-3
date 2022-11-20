@@ -1,7 +1,7 @@
-﻿flask
+tensorflow
+flask
 flask_wtf
 wtforms
 werkzeug
 numpy
 pandas
-tensorflow
