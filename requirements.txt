@@ -4,5 +4,4 @@ wtforms
 werkzeug
 numpy
 pandas
-opencv-python
 tensorflow
