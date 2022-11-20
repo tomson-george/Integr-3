@@ -34,24 +34,20 @@ def home():
         #Giving to tf for processing
         data = tf.keras.utils.img_to_array(img)
 
-        # data = tf.keras.utils.image_dataset_from_directory('data', image_size=(224, 224))
-        # print("Processing:", data)
-
         #Rescaling
         resc = lambda x: (x / 255)
         f = np.vectorize(resc)
         data = f(data)
         data = np.expand_dims(data, axis = 0)
 
-        # data = data.map(lambda x, y: (x / 255, y))
-
         print("Scaling: ", data)
         print(data.shape)
 
         #predicting
-        m = tf.keras.models.load_model('skin')
+        m = tf.keras.models.load_model('model.h5')
         res = m.predict(data)
-        print("Result: ", res)
+        ires = np.argmax(res[0])
+        print("Index of the maximum value: ", ires)
 
 
         #filepath = os.path.join(img_filename)
@@ -66,8 +62,8 @@ def home():
 
 
         # return render_template("uploaded_successfully.html",user_image = img_filename)
-        return render_template("index.html",form = form, result=res)
-    return render_template('index.html', form=form)
+        return render_template("index.html",form = form, result=ires)
+    return render_template("index.html", form=form)
 
 if __name__ == '__main__':
     application.run(debug=True)
