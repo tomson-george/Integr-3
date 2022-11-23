@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body style="background: #5256ad;">
+    <div style="text-align:center">
+        <p>&nbsp;</p>
+        <h1 style="color:white">Skin Disease Predictor</h1>
+    </div>
+
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <center>
+        <div style="text-align:center" class="drag-area">
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+
+        <div style="text-align:center">
+            <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+            <header>Upload image</header>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <form method='POST' enctype='multipart/form-data'>
+            {{form.hidden_tag()}}
+            {{form.file()}}
+            {{form.submit()}}
+                <p>&nbsp;</p>
+            </form>
+        </div>
+        </div>
+    </center>
+    <p>&nbsp;</p>
+    <div style="text-align:center">
+        <h3 style="color:white">
+            <b>
+                Skin disease with most common match is {{result}}
+            </b>
+            <b>
+            {{result}}
+            </b>
+        </h3>
+    </div>
+
+</body>
+</html>
