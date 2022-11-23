@@ -30,6 +30,7 @@ def home():
         img = cv2.imread(img_filename)
         img = cv2.resize(img, (224, 224))
         cv2.imwrite(img_filename, img)
+        # cv2.imwrite("static/files/"+img_filename, img)
 
         #Giving to tf for processing
         data = tf.keras.utils.img_to_array(img)
@@ -48,6 +49,10 @@ def home():
         res = m.predict(data)
         ires = np.argmax(res[0])
         print("Index of the maximum value: ", ires)
+        d1 = "Disease 1: " + str(round(res[0][0] * 100)) +"%"
+        d2 = "Disease 2: " + str(round(res[0][1] * 100)) +"%"
+        d3 = "Disease 3: " + str(round(res[0][2] * 100)) +"%"
+        d4 = "Disease 4: " + str(round(res[0][3] * 100)) +"%"
 
 
         #filepath = os.path.join(img_filename)
@@ -62,8 +67,8 @@ def home():
 
 
         # return render_template("uploaded_successfully.html",user_image = img_filename)
-        return render_template("index.html",form = form, result=ires)
-    return render_template("upload_result.html", form=form)
+        return render_template("upload_result.html",form = form, result=ires, d1 = d1, d2 = d2, d3 = d3, d4 =d4)
+    return render_template("index.html", form=form)
 
 if __name__ == '__main__':
     application.run(debug=True)
