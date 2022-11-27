@@ -20,6 +20,7 @@ class UploadFileForm(FlaskForm):
 @application.route('/', methods=['GET',"POST"])
 @application.route('/home', methods=['GET',"POST"])
 def home():
+    dis = {0: "Nail Infection", 1: "Viral Infection", 2: "Melanoma"}
     form = UploadFileForm()
     if form.validate_on_submit():
         file = form.file.data # First grab the file
@@ -47,12 +48,12 @@ def home():
         #predicting
         m = tf.keras.models.load_model('model.h5')
         res = m.predict(data)
-        ires = np.argmax(res[0])
+        ind = np.argmax(res[0])
+        ires = dis[ind]
         print("Index of the maximum value: ", ires)
-        d1 = "Disease 1: " + str(round(res[0][0] * 100)) +"%"
-        d2 = "Disease 2: " + str(round(res[0][1] * 100)) +"%"
-        d3 = "Disease 3: " + str(round(res[0][2] * 100)) +"%"
-        d4 = "Disease 4: " + str(round(res[0][3] * 100)) +"%"
+        d1 = "Nail Infection: " + str(round(res[0][0] * 100)) +"%"
+        d2 = "Viral Infection: " + str(round(res[0][1] * 100)) +"%"
+        d3 = "Melanoma: " + str(round(res[0][2] * 100)) +"%"
 
 
         #filepath = os.path.join(img_filename)
@@ -67,7 +68,7 @@ def home():
 
 
         # return render_template("uploaded_successfully.html",user_image = img_filename)
-        return render_template("upload_result.html",form = form, result=ires, d1 = d1, d2 = d2, d3 = d3, d4 =d4)
+        return render_template("upload_result.html",form = form, result=ires, d1 = d1, d2 = d2, d3 = d3)
     return render_template("index.html", form=form)
 
 if __name__ == '__main__':
