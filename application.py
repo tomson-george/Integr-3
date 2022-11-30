@@ -51,9 +51,11 @@ def home():
         ind = np.argmax(res[0])
         ires = dis[ind]
         print("Index of the maximum value: ", ires)
+
         d1 = "Melanoma: " + str(round(res[0][0] * 100)) +"%"
         d2 = "Nail Fungus: " + str(round(res[0][1] * 100)) +"%"
         d3 = "Viral Infection: " + str(round(res[0][2] * 100)) +"%"
+
 
 
         #filepath = os.path.join(img_filename)
