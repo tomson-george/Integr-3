@@ -46,7 +46,7 @@ def home():
         print(data.shape)
 
         #predicting
-        m = tf.keras.models.load_model('model.h5',compile=True)
+        m = tf.keras.models.load_model('model.h5')
         res = m.predict(data)
         ind = np.argmax(res[0])
         ires = dis[ind]
