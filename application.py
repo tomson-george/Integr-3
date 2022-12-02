@@ -73,6 +73,5 @@ def home():
         return render_template("upload_result.html",form = form, result=ires, d1 = d1, d2 = d2, d3 = d3)
     return render_template("index.html", form=form)
 
-
 if __name__ == '__main__':
     application.run(debug=True)
