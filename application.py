@@ -28,11 +28,9 @@ def home():
 
         #Image resizing
         file.save(img_filename)
-        webpath = "templates/"+img_filename
 
         img = cv2.imread(img_filename)
         img = cv2.resize(img, (224, 224))
-        cv2.imwrite(webpath, img)
         cv2.imwrite(img_filename, img)
         # cv2.imwrite("static/files/"+img_filename, img)
 
@@ -73,7 +71,7 @@ def home():
 
 
         # return render_template("uploaded_successfully.html",user_image = img_filename)
-        return render_template("upload_result.html",form = form, img1 = '"'+img_filename+'"', result=ires, d1 = d1, d2 = d2, d3 = d3)
+        return render_template("upload_result.html",form = form, result=ires, d1 = d1, d2 = d2, d3 = d3)
     return render_template("index.html", form=form)
 
 if __name__ == '__main__':
