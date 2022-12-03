@@ -28,10 +28,11 @@ def home():
 
         #Image resizing
         file.save(img_filename)
-        webpath = "/templates/"+img_filename
-        file.save(webpath)
+        webpath = "templates/"+img_filename
+
         img = cv2.imread(img_filename)
         img = cv2.resize(img, (224, 224))
+        cv2.imwrite(webpath, img)
         cv2.imwrite(img_filename, img)
         # cv2.imwrite("static/files/"+img_filename, img)
 
