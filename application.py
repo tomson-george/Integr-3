@@ -73,7 +73,7 @@ def home():
 
 
         # return render_template("uploaded_successfully.html",user_image = img_filename)
-        return render_template("upload_result.html",form = form, img1 = img_filename, result=ires, d1 = d1, d2 = d2, d3 = d3)
+        return render_template("upload_result.html",form = form, img1 = '"'+img_filename+'"', result=ires, d1 = d1, d2 = d2, d3 = d3)
     return render_template("index.html", form=form)
 
 if __name__ == '__main__':
