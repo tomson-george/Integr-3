@@ -50,6 +50,7 @@ def home():
         m = tf.keras.models.load_model('model.h5')
         res = m.predict(data)
         ind = np.argmax(res[0])
+        print(ind)
         ires = dis[ind]
         print("Index of the maximum value: ", ires)
 
