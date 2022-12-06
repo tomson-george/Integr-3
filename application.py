@@ -20,7 +20,7 @@ class UploadFileForm(FlaskForm):
 @application.route('/', methods=['GET',"POST"])
 @application.route('/home', methods=['GET',"POST"])
 def home():
-    dis = ["Nail Infection", "Viral Infection", "Melanoma"]
+    dis = ["Melanoma", "Nail Fungus", "Viral Infection"]
     form = UploadFileForm()
     if form.validate_on_submit():
         file = form.file.data # First grab the file
